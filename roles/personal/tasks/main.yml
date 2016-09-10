@@ -24,3 +24,9 @@
      - texinfo
      - zlib1g-dev
 
+- name: Emacs usage packages
+  apt: name={{ item }} state=present
+  with_items:
+    - aspell
+    - aspell-de
+    - aspell-en
