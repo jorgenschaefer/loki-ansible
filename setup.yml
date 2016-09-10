@@ -1,0 +1,9 @@
+---
+- hosts: all
+  remote_user: root
+  connection: paramiko
+  tasks:
+    - name: Install sshpass for ansible
+      apt: name=sshpass state=present
+    - name: Add authorized key to root
+      authorized_key: user=root key="{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"

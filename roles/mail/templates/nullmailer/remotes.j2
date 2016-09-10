@@ -1,0 +1,1 @@
+{{ nullmailer.remote_host }} smtp --port={{ nullmailer.remote_port|default(587) }} --auth-login --user={{ nullmailer.remote_user }} --pass={{ nullmailer.remote_password }} --starttls

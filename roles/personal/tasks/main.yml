@@ -1,0 +1,26 @@
+---
+- name: Personal user
+  user: name="{{ personal.user.name }}" comment="{{ personal.user.comment }}" groups=sudo
+
+- name: Basic packages
+  apt: name={{ item }} state=present
+  with_items:
+    - git
+    - build-essential
+
+- name: Emacs Build Packages
+  apt: name={{ item }} state=present
+  with_items:
+     - autoconf
+     - automake
+     - autotools-dev
+     - bsd-mailx
+     - libacl1-dev
+     - libdbus-1-dev
+     - libgnutls28-dev
+     - liblockfile-dev
+     - libncurses5-dev
+     - libxml2-dev
+     - texinfo
+     - zlib1g-dev
+
