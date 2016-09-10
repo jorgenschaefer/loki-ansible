@@ -7,11 +7,17 @@
 - name: Configure nullmailer adminaddr
   template: src=nullmailer/adminaddr.j2 dest=/etc/nullmailer/adminaddr
             owner=root group=root mode=0644
+  notify:
+    - Restart nullmailer
 
 - name: Configure nullmailer defaultdomain
   template: src=nullmailer/defaultdomain.j2 dest=/etc/nullmailer/defaultdomain
             owner=root group=root mode=0644
+  notify:
+    - Restart nullmailer
 
 - name: Configure nullmailer remotes
   template: src=nullmailer/remotes.j2 dest=/etc/nullmailer/remotes
             owner=mail group=mail mode=0600
+  notify:
+    - Restart nullmailer
