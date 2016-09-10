@@ -1,4 +1,6 @@
 ---
+hostname: loki.jorgenschaefer.de
+
 personal:
   user:
     name: forcer
