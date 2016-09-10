@@ -1,5 +1,7 @@
 ---
-hostname: loki.jorgenschaefer.de
+hostname:
+  fqdn: loki.jorgenschaefer.de
+  short: loki
 
 personal:
   user:
