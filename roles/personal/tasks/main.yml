@@ -9,6 +9,14 @@
     - git
     - pass
 
+- name: Ansible server packages
+  apt: name={{ item }} state=present
+  with_items:
+    - virtualenv
+    - libffi-dev
+    - libyaml-dev
+    - libssl-dev
+
 - name: Emacs Build Packages
   apt: name={{ item }} state=present
   with_items:
