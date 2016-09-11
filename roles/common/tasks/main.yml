@@ -1,3 +1,4 @@
+# Host name
 - name: Set hostname
   hostname: name={{ hostname.fqdn }}
 
@@ -5,6 +6,12 @@
   template: src=hosts.j2 dest=/etc/hosts
             owner=root group=root mode=0644
 
+# Debian configuration
+- name: Disable installing recommended packages
+  template: src=10norecommends.j2 dest=/etc/apt/apt.conf.d/10norecommends
+            owner=root group=root mode=0644
+
+# fail2ban
 - name: Install fail2ban
   apt: name=fail2ban state=present
 
