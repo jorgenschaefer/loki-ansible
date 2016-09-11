@@ -1,0 +1,12 @@
+- name: Stop unwanted services
+  service: name={{ item }} state=absent
+  with_items:
+    - sendmail
+
+- name: Deinstall unwanted packages
+  apt: name={{ item }} state=absent
+  with_items:
+    - sendmail-base
+    - sendmail-bin
+    - sendmail-cf
+    - sendmail-doc
