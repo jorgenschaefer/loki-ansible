@@ -1,0 +1,9 @@
+[Unit]
+Description=SMTP Proxy
+
+[Service]
+EnvironmentFile=-/etc/default/smtpproxy
+ExecStart=/opt/smtpproxy/bin/smtpproxy
+
+[Install]
+WantedBy=default.target

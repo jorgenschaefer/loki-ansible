@@ -1,0 +1,29 @@
+---
+- name: Install golang for smtpproxy
+  apt: name=golang state=present
+
+- name: Install smtpproxy
+  shell: |
+    export GOPATH="$(mktemp -d /tmp/tmp-gopath.XXXXXXXXXX)" &&
+    mkdir -p "$GOPATH" &&
+    go get github.com/jorgenschaefer/smtpproxy &&
+    mkdir -p /opt/smtpproxy/bin/ &&
+    cp "$GOPATH/bin/smtpproxy" /opt/smtpproxy/bin/ &&
+    rm -rf "$GOPATH"
+  args:
+    creates: /opt/smtpproxy/bin/smtpproxy
+
+- name: Configure smtpproxy service
+  template: src=smtpproxy/smtpproxy.service.j2 dest=/etc/systemd/system/smtpproxy.service
+            owner=root group=root mode=0644
+  notify:
+    - Restart smtpproxy
+
+- name: Configure smtpproxy
+  template: src=smtpproxy/smtpproxy.env.j2 dest=/etc/default/smtpproxy
+            owner=root group=root mode=0644
+  notify:
+    - Restart nullmailer
+
+- name: Enable smtpproxy
+  service: name=smtpproxy state=started enabled=yes

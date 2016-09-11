@@ -15,3 +15,11 @@ nullmailer:
   remote_host: smtp.gmail.com
   remote_user: Jorgen.Schaefer@gmail.com
   remote_password: "{{ vault_nullmailer_remote_password }}"
+
+smtpproxy:
+  valid_recipients: |
+    "^(forcer|jorgen|contact)@(jorgenschaefer\.de|forcix\.cx)$"
+  override_recipient: |
+    "Jorgen.Schaefer@gmail.com"
+  relay_host: |
+    "gmail-smtp-in.l.google.com:25"
