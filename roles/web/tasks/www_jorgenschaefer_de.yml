@@ -1,0 +1,10 @@
+---
+- name: Create www.jorgenschaefer.de site config
+  template: src=vhost.conf.j2 dest=/etc/nginx/sites-available/www.jorgenschaefer.de
+  notify:
+    - Restart nginx
+
+- name: Enable www.jorgenschaefer.de
+  file: src=/etc/nginx/sites-available/www.jorgenschaefer.de
+        dest=/etc/nginx/sites-enabled/www.jorgenschaefer.de
+        state=link

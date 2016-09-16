@@ -1,0 +1,12 @@
+- name: Create www.jorgenschaefer.de.pem
+  copy: content="{{ certificates.www_jorgenschaefer_de.pem }}"
+        dest=/etc/ssl/certs/www.jorgenschaefer.de.pem
+
+- name: Create www.jorgenschaefer.de.dhparam
+  copy: content="{{ certificates.www_jorgenschaefer_de.dhparam }}"
+        dest=/etc/ssl/certs/www.jorgenschaefer.de.dhparam
+
+- name: Create www.jorgenschaefer.de.key
+  copy: content="{{ certificates.www_jorgenschaefer_de.key }}"
+        dest=/etc/ssl/private/www.jorgenschaefer.de.key
+        owner=root group=ssl-cert mode=0640

@@ -1,0 +1,16 @@
+- name: Install nginx package
+  apt: name=nginx state=present
+
+- name: Enable nginx
+  service: name=nginx state=started enabled=yes
+
+- name: Remove default site
+  file: path=/etc/nginx/sites-enabled/default
+        state=absent
+  notify:
+    - Restart nginx
+
+- name: Create public directory
+  file: path=/srv/www.jorgenschaefer.de/public/
+        state=directory
+        owner=forcer group=forcer mode=0755
