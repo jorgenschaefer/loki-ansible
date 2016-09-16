@@ -5,9 +5,20 @@
 - name: Basic packages
   apt: name={{ item }} state=present
   with_items:
+    - bc
+    - bind9-host
     - build-essential
+    - curl
     - git
+    - mtr-tiny
+    - netcat-openbsd
     - pass
+    - silversearcher-ag
+    - strace
+    - time
+    - w3m
+    - zip
+    - virtualenvwrapper
 
 - name: Ansible server packages
   apt: name={{ item }} state=present
