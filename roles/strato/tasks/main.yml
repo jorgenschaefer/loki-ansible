@@ -1,5 +1,5 @@
 - name: Stop unwanted services
-  service: name={{ item }} state=absent
+  service: name={{ item }} state=stopped
   with_items:
     - sendmail
 
