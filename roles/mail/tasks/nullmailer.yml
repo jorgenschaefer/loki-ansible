@@ -5,14 +5,14 @@
   service: name=nullmailer state=started enabled=yes
 
 - name: Configure nullmailer adminaddr
-  template: src=nullmailer/adminaddr.j2 dest=/etc/nullmailer/adminaddr
-            owner=root group=root mode=0644
+  copy: content="{{ nullmailer.adminaddr }}\n"
+        dest=/etc/nullmailer/adminaddr
   notify:
     - Restart nullmailer
 
 - name: Configure nullmailer defaultdomain
-  template: src=nullmailer/defaultdomain.j2 dest=/etc/nullmailer/defaultdomain
-            owner=root group=root mode=0644
+  copy: content="{{ nullmailer.defaultdomain }}\n"
+        dest=/etc/nullmailer/defaultdomain
   notify:
     - Restart nullmailer
 
