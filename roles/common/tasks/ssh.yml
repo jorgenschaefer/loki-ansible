@@ -1,0 +1,31 @@
+---
+- name: Disable root login in ssh
+  lineinfile: dest=/etc/ssh/sshd_config
+              regexp=^PermitRootLogin
+              line="PermitRootLogin no"
+  notify:
+    - Restart sshd
+
+- name: Allow only forcer to log in
+  lineinfile: dest=/etc/ssh/sshd_config
+              regexp=^AllowUsers
+              line="AllowUsers forcer"
+  notify:
+    - Restart sshd
+
+- name: Disable the Debian banner in sshd
+  lineinfile: dest=/etc/ssh/sshd_config
+              regexp=^DebianBanner
+              line="DebianBanner no"
+  notify:
+    - Restart sshd
+
+- name: Enable root logins from localhost
+  blockinfile:
+    dest: /etc/ssh/sshd_config
+    block: |
+      Match Address 127.0.0.1,{{ansible_default_ipv4.address}},{{ansible_default_ipv6.address}}
+        PermitRootLogin yes
+        AllowUsers forcer root
+  notify:
+    - Restart sshd

@@ -1,0 +1,4 @@
+---
+- name: Disable installing recommended packages
+  template: src=10norecommends.j2 dest=/etc/apt/apt.conf.d/10norecommends
+            owner=root group=root mode=0644
