@@ -49,3 +49,22 @@
         AllowUsers forcer root
   notify:
     - Restart sshd
+
+# Unattended Upgrades
+- name: Undo Strato apt cronjob disabling
+  command: mv /etc/cron.daily/apt.disabled /etc/cron.daily/apt
+           creates=/etc/cron.daily/apt
+           removes=/etc/cron.daily/apt.disabled
+
+- name: Install unattended-upgrades
+  apt: name=unattended-upgrades state=present
+
+- name: create APT auto-upgrades configuration
+  copy: src=auto-upgrades
+        dest=/etc/apt/apt.conf.d/20auto-upgrades
+        owner=root group=root mode=0644
+
+- name: create unattended-upgrades configuration
+  template: src=unattended-upgrades.j2
+            dest=/etc/apt/apt.conf.d/50unattended-upgrades
+            owner=root group=root mode=0644
