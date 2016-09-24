@@ -19,11 +19,11 @@
   notify:
     - Restart smtpproxy
 
+- name: Enable smtpproxy
+  service: name=smtpproxy enabled=yes
+
 - name: Configure smtpproxy
   template: src=smtpproxy/smtpproxy.env.j2 dest=/etc/default/smtpproxy
             owner=root group=root mode=0644
   notify:
     - Restart nullmailer
-
-- name: Enable smtpproxy
-  service: name=smtpproxy state=started enabled=yes
