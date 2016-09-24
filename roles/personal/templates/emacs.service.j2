@@ -1,0 +1,12 @@
+[Unit]
+Description=Emacs Daemon
+
+[Service]
+Type=forking
+ExecStart=/bin/bash -l -c '/home/forcer/.local/bin/emacs --daemon'
+ExecStop=/bin/bash -l -c '/home/forcer/.local/bin/emacsclient --eval "(kill-emacs)"'
+User=forcer
+Restart=always
+
+[Install]
+WantedBy=default.target
