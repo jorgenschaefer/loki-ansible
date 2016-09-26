@@ -1,0 +1,26 @@
+---
+- name: Generate useful locales
+  locale_gen: name={{ item }} state=present
+  with_items:
+    - de_DE.UTF-8
+    - en_US.UTF-8
+
+- name: Set default locale
+  copy: content=en_US.UTF-8
+        dest=/etc/default/locale
+        owner=root group=root mode=0644
+
+- name: Set LANG in system profile
+  lineinfile: dest=/etc/profile
+              regexp='^export LANG='
+              line='export LANG="en_US.utf8"'
+
+- name: Set LANGUAGE in system profile
+  lineinfile: dest=/etc/profile
+              regexp='^export LANGUAGE='
+              line='export LANGUAGE="en_US.utf8"'
+
+- name: Set LC_ALL in system profile
+  lineinfile: dest=/etc/profile
+              regexp='^export LC_ALL='
+              line='export LC_ALL="en_US.utf8"'
