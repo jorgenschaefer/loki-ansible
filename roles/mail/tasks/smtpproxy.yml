@@ -16,8 +16,13 @@
 - name: Configure smtpproxy service
   template: src=smtpproxy/smtpproxy.service.j2 dest=/etc/systemd/system/smtpproxy.service
             owner=root group=root mode=0644
+  register: smtpproxy_service_file
   notify:
     - Restart smtpproxy
+
+- name: Ensure systemd knows the smtpproxy service
+  command: systemctl daemon-reload
+  when: smtpproxy_service_file.changed
 
 - name: Enable smtpproxy
   service: name=smtpproxy enabled=yes

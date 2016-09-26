@@ -55,8 +55,13 @@
 - name: Install Emacs Daemon service file
   template: src=emacs.service.j2 dest=/etc/systemd/system/emacs.service
             owner=root group=root mode=0644
+  register: emacs_service_file
   notify:
     - Restart emacs daemon
+
+- name: Ensure systemd knows the emacs service
+  command: systemctl daemon-reload
+  when: emacs_service_file.changed
 
 - name: Enable Emacs Daemon
   service: name=emacs enabled=yes
