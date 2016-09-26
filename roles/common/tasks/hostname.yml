@@ -5,3 +5,20 @@
 - name: Configure /etc/hosts
   template: src=hosts.j2 dest=/etc/hosts
             owner=root group=root mode=0644
+
+- name: Configure /etc/hostname.bak
+  copy: content={{ hostname.fqdn }}
+        dest=/etc/hostname.bak
+        owner=root group=root mode=0644
+
+- name: Create the hostname service
+  copy: src=sethostname.service
+        dest=/etc/systemd/system/sethostname.service
+  register: hostname_service_file
+
+- name: Ensure systemd knows the hostname service
+  command: systemctl daemon-reload
+  when: hostname_service_file.changed
+
+- name: Enable the hostname service
+  service: name=sethostname enabled=yes
