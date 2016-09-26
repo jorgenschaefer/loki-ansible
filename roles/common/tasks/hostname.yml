@@ -7,7 +7,7 @@
             owner=root group=root mode=0644
 
 - name: Configure /etc/hostname.bak
-  copy: content={{ hostname.fqdn }}
+  copy: content="{{ hostname.fqdn }}\n"
         dest=/etc/hostname.bak
         owner=root group=root mode=0644
 
