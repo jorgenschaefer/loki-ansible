@@ -1,9 +1,14 @@
 ---
-- name: Generate useful locales
+- name: Activate useful locales
   locale_gen: name={{ item }} state=present
+  register: locale_gen_file
   with_items:
     - de_DE.UTF-8
     - en_US.UTF-8
+
+- name: Generate locales
+  command: /usr/sbin/locale-gen
+  when: locale_gen_file.changed
 
 - name: Set default locale
   copy: content=en_US.UTF-8
