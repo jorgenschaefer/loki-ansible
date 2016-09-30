@@ -1,10 +1,13 @@
+---
 - name: Stop unwanted services
   service: name={{ item }} state=stopped enabled=no
   with_items:
     - sendmail
+  register: stop_service_result
+  failed_when: "stop_service_result|failed and 'could not find' not in stop_service_result.msg"
 
 - name: Deinstall unwanted packages
-  apt: name={{ item }} state=absent
+  apt: name={{ item }} state=absent purge=yes
   with_items:
     - sendmail-base
     - sendmail-bin
