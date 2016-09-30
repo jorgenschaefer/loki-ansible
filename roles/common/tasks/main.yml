@@ -1,6 +1,7 @@
 ---
 - include: hostname.yml
 - include: locales.yml
+- include: journald.yml
 - include: apt.yml
 - include: fail2ban.yml
 - include: ssh.yml

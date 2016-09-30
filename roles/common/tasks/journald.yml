@@ -1,0 +1,5 @@
+---
+- name: Create journal directory
+  file: name=/var/log/journal
+        state=directory
+        owner=root group=root mode=0750
