@@ -11,7 +11,7 @@
   when: locale_gen_file.changed
 
 - name: Set default locale
-  copy: content=en_US.UTF-8
+  copy: content='LANG="en_US.UTF-8"'
         dest=/etc/default/locale
         owner=root group=root mode=0644
 
