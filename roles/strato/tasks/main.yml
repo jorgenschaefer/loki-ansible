@@ -13,3 +13,7 @@
     - sendmail-bin
     - sendmail-cf
     - sendmail-doc
+
+- name: Configure backports
+  apt_repository: filename="/etc/apt/sources.list.d/backports.list"
+                  repo="deb ftp://ftp.stratoserver.net/pub/linux/debian/ jessie-backports main contrib non-free"

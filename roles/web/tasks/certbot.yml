@@ -1,0 +1,6 @@
+- name: Install certbot
+  apt: name=certbot state=installed default_release={{ ansible_distribution_release }}-backports
+
+- name: Retrieve certificate
+  command: certbot certonly --email Jorgen.Schaefer@gmail.com --agree-tos --webroot --webroot-path /srv/www.jorgenschaefer.de/public/ --domain jorgenschaefer.de --domain www.jorgenschaefer.de --domain jorgen-schaefer.de --domain www.jorgen-schaefer.de
+           creates=/etc/letsencrypt/live/jorgenschaefer.de/fullchain.pem

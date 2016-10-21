@@ -17,8 +17,8 @@ server {
               jorgen-schaefer.de
               www.jorgen-schaefer.de;
 
-  ssl_certificate /etc/ssl/certs/www.jorgenschaefer.de.pem;
-  ssl_certificate_key /etc/ssl/private/www.jorgenschaefer.de.key;
+  ssl_certificate /etc/letsencrypt/live/jorgenschaefer.de/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/jorgenschaefer.de/privkey.pem;
 
   return 301 https://www.jorgenschaefer.de$request_uri;
 }
@@ -32,8 +32,8 @@ server {
   # Configuration from https://mozilla.github.io/server-side-tls/ssl-config-generator/
 
   # certs sent to the client in SERVER HELLO are concatenated in ssl_certificate
-  ssl_certificate /etc/ssl/certs/www.jorgenschaefer.de.pem;
-  ssl_certificate_key /etc/ssl/private/www.jorgenschaefer.de.key;
+  ssl_certificate /etc/letsencrypt/live/jorgenschaefer.de/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/jorgenschaefer.de/privkey.pem;
   ssl_session_timeout 1d;
   ssl_session_cache shared:SSL:50m;
 
