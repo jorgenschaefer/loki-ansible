@@ -14,7 +14,7 @@ nullmailer:
   defaultdomain: jorgenschaefer.de
   remote_host: smtp.gmail.com
   remote_user: Jorgen.Schaefer@gmail.com
-  remote_password: "{{ vault_nullmailer_remote_password }}"
+  remote_password: "{{ secret_nullmailer_remote_password }}"
 
 smtpproxy:
   valid_recipients: |

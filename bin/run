@@ -6,4 +6,4 @@ cd "$(dirname "$0")"/..
 
 . ./venv/bin/activate
 
-ansible-playbook -i "$(pwd)/hosts" run.yml "$@"
+ansible-playbook -i "$(pwd)/inventory" site.yml "$@"
