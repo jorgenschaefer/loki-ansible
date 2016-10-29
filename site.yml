@@ -5,6 +5,7 @@
     - common
     - strato
     - personal
-    - mail
     - web
+    - nullmailer
+    - smtpproxy
     - journalcheck

@@ -13,22 +13,17 @@
   args:
     creates: /opt/smtpproxy/bin/smtpproxy
 
-- name: Configure smtpproxy service
-  template: src=smtpproxy/smtpproxy.service.j2 dest=/etc/systemd/system/smtpproxy.service
+- name: Configure smtpproxy
+  template: src=smtpproxy.env.j2 dest=/etc/default/smtpproxy
             owner=root group=root mode=0644
-  register: smtpproxy_service_file
   notify:
     - Restart smtpproxy
 
-- name: Ensure systemd knows the smtpproxy service
-  command: systemctl daemon-reload
-  when: smtpproxy_service_file.changed
-
-- name: Enable smtpproxy
-  service: name=smtpproxy enabled=yes
-
-- name: Configure smtpproxy
-  template: src=smtpproxy/smtpproxy.env.j2 dest=/etc/default/smtpproxy
+- name: Configure smtpproxy service
+  template: src=smtpproxy.service.j2 dest=/etc/systemd/system/smtpproxy.service
             owner=root group=root mode=0644
   notify:
-    - Restart nullmailer
+    - Restart smtpproxy
+
+- name: Enable smtpproxy
+  systemd: name=smtpproxy state=started enabled=yes daemon_reload=yes

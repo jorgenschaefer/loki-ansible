@@ -17,7 +17,7 @@
     - Restart nullmailer
 
 - name: Configure nullmailer remotes
-  template: src=nullmailer/remotes.j2 dest=/etc/nullmailer/remotes
+  template: src=remotes.j2 dest=/etc/nullmailer/remotes
             owner=mail group=mail mode=0600
   notify:
     - Restart nullmailer

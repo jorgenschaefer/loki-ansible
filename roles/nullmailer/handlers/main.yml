@@ -1,6 +1,3 @@
 ---
 - name: Restart nullmailer
   service: name=nullmailer state=restarted
-
-- name: Restart smtpproxy
-  service: name=smtpproxy state=restarted
