@@ -10,16 +10,32 @@
     - bind9-host
     - build-essential
     - curl
+    - file
+    - gawk
     - git
+    - lsof
+    - mktemp
     - mtr-tiny
     - netcat-openbsd
     - pass
+    - psmisc
+    - rsync
+    - screen
     - silversearcher-ag
+    - ssl-cert
     - strace
+    - sudo
+    - tcpdump
+    - telnet
     - time
+    - unzip
+    - uuid-runtime
+    - vim
     - w3m
     - zip
     - virtualenvwrapper
+    - whois
+    - xz-utils
 
 - name: Ansible server packages
   apt: name={{ item }} state=present
@@ -28,6 +44,7 @@
     - libffi-dev
     - libyaml-dev
     - libssl-dev
+    - sshpass
 
 - name: Emacs Build Packages
   apt: name={{ item }} state=present
