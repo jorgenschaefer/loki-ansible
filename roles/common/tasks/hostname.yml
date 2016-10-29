@@ -1,4 +1,7 @@
 ---
+- name: Install dbus for hostnamectl
+  apt: name=dbus state=present
+
 - name: Set hostname
   hostname: name={{ hostname.fqdn }}
 
