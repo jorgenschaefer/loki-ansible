@@ -9,6 +9,8 @@
 ^cron.service: \(root\) CMD \(test -x /usr/sbin/anacron \|\| \( cd / && run-parts --report /etc/cron.daily \)\)$
 ^crontab: \([^ ]+\) END EDIT \([^ ]+\)$
 ^crontab: \([^ ]+\) REPLACE \([^ ]+\)$
+^dbus.service: \[system\] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service'$
+^dbus.service: \[system\] Successfully activated service 'org.freedesktop.hostname1'$
 ^emacs.service:
 ^fail2ban.service: Starting authentication failure monitor: fail2ban\.$
 ^fail2ban.service: Stopping authentication failure monitor: fail2ban\.$
@@ -82,9 +84,13 @@
 ^sudo: pam_unix\(sudo:session\): session closed for user
 ^sudo: pam_unix\(sudo:session\): session opened for user
 ^su: pam_unix\(su:session\): session closed for user
+^systemd-hostnamed.service: Warning: nss-myhostname is not installed. Changing the local hostname might make it unresolveable. Please install nss-myhostname!$
 ^systemd-journald.service: Journal started$
 ^systemd-journald.service: Journal stopped$
 ^systemd-journald.service: Permanent journal is using
 ^systemd-journald.service: Runtime journal is using
 ^systemd-journald.service: Time spent on flushing to /var is
 ^vzquota.service: /etc/init\.d/vzquota: 15: \[: 0: unexpected operator$
+
+# Ansible
+^ssh.service: Invoked with
