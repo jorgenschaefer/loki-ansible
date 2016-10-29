@@ -1,0 +1,38 @@
+---
+- name: Install golang for journalcheck
+  apt: name=golang state=present
+
+- name: Install libsystemd-dev for journalcheck
+  apt: name=libsystemd-dev state=present
+
+- name: Install journalcheck
+  shell: |
+    export GOPATH="$(mktemp -d /tmp/tmp-gopath.XXXXXXXXXX)" &&
+    mkdir -p "$GOPATH" &&
+    go get github.com/jorgenschaefer/journalcheck &&
+    mkdir -p /opt/journalcheck/bin/ &&
+    cp "$GOPATH/bin/journalcheck" /opt/journalcheck/bin/ &&
+    rm -rf "$GOPATH"
+  args:
+    creates: /opt/journalcheck/bin/journalcheck
+
+- name: Configure journalcheck
+  template: src=journalcheck.env.j2 dest=/etc/default/journalcheck
+
+- name: Configure journalcheck service
+  copy: src=journalcheck.service dest=/etc/systemd/system/journalcheck.service
+
+- name: Configure journalcheck timer
+  copy: src=journalcheck.timer dest=/etc/systemd/system/journalcheck.timer
+
+- name: Create directory for the cursor file
+  file: path=/opt/journalcheck/var state=directory
+
+- name: Create directory for the filter file
+  file: path=/opt/journalcheck/etc state=directory
+
+- name: Create filters file
+  copy: src=filters.txt dest=/opt/journalcheck/etc/filters.txt
+
+- name: Enable journalcheck timer
+  systemd: name=journalcheck.timer state=started enabled=yes daemon_reload=yes

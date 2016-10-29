@@ -23,3 +23,5 @@ smtpproxy:
     "Jorgen.Schaefer@gmail.com"
   relay_host: |
     "gmail-smtp-in.l.google.com:25"
+
+journalcheck_recipient: Jorgen.Schaefer@gmail.com
