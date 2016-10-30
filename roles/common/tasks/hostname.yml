@@ -2,6 +2,9 @@
 - name: Install dbus for hostnamectl
   apt: name=dbus state=present
 
+- name: Install libnss-myhostname as recommended by hostnamectl
+  apt: name=libnss-myhostname state=present
+
 - name: Set hostname
   hostname: name={{ hostname.fqdn }}
 
