@@ -54,7 +54,7 @@
 ^sshd: Server listening on 0.0.0.0 port 22\.$
 ^sshd: Server listening on :: port 22\.$
 ^sshd: syslogin_perform_logout: logout\(\) returned an error$
-^sshd: User root from [^ ]+ not allowed because not listed in AllowUsers$
+^sshd: User [^ ]+ from [^ ]+ not allowed because not listed in AllowUsers$
 ^su:
 ^sudo: [^ ]+ : \(command continued\)
 ^sudo: [^ ]+ : TTY=
