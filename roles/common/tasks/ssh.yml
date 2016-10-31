@@ -6,10 +6,10 @@
   notify:
     - Restart sshd
 
-- name: Allow only forcer to log in
+- name: Allow only admin user to log in
   lineinfile: dest=/etc/ssh/sshd_config
               regexp=^AllowUsers
-              line="AllowUsers forcer"
+              line="AllowUsers {{ personal.user.name }}"
   notify:
     - Restart sshd
 
@@ -26,6 +26,6 @@
     block: |
       Match Address 127.0.0.1,{{ansible_default_ipv4.address}}{% if ansible_default_ipv6 %},{{ansible_default_ipv6.address}}{% endif %}{{''}}
         PermitRootLogin yes
-        AllowUsers forcer root
+        AllowUsers {{ personal.user.name }} root
   notify:
     - Restart sshd
