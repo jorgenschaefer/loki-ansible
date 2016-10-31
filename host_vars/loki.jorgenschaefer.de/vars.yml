@@ -8,7 +8,6 @@ personal:
     name: forcer
     comment: Jorgen Schaefer
 
-# mail:
 nullmailer:
   adminaddr: Jorgen.Schaefer@gmail.com
   defaultdomain: jorgenschaefer.de
