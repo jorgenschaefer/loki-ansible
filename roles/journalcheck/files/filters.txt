@@ -38,6 +38,7 @@
 ^sshd: error: Received disconnect from
 ^sshd: Exiting on signal 15$
 ^sshd: Failed (none|password) for invalid user
+^sshd: fatal: no matching cipher found:
 ^sshd: fatal: Read from socket failed: Connection reset by peer \[preauth\]$
 ^sshd: input_userauth_request: invalid user
 ^sshd: Invalid user [^ ]+ from
