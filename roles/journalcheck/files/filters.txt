@@ -50,6 +50,7 @@
 ^sshd: pam_unix\(sshd:session\): session closed for user
 ^sshd: pam_unix\(sshd:session\): session opened for user
 ^sshd: pam_unix\(sshd:session\): session opened for user
+^sshd: Protocol major versions differ for
 ^sshd: Received disconnect from
 ^sshd: Received SIGHUP; restarting\.$
 ^sshd: Received signal 15; terminating\.$
