@@ -26,6 +26,7 @@
 ^smtpproxy: Error: missing sender;
 ^smtpproxy: Error reading from client;
 ^smtpproxy: Error: relay access denied;
+^smtpproxy: Error: unknown command;
 ^smtpproxy: Error: writing server greeting;
 ^smtpproxy: New connection;
 ^smtpproxy: SMTP proxy started;
