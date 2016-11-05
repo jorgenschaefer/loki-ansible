@@ -6,5 +6,18 @@ EnvironmentFile=-/etc/default/smtpproxy
 ExecStart=/opt/smtpproxy/bin/smtpproxy
 Restart=on-failure
 
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+
+ProtectSystem=strict
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+
+MemoryDenyWriteExecute=yes
+ReadOnlyDirectories=/
+NoNewPrivileges=yes
+SystemCallFilter=@network-io
+RestrictAddressFamilies=AF_INET AF_INET6
+
 [Install]
 WantedBy=default.target
