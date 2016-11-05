@@ -37,6 +37,7 @@
 ^sshd: Connection closed by
 ^sshd: Did not receive identification string from
 ^sshd: error: Received disconnect from
+^sshd: error: connect_to localhost port [0-9]+ failed\.$
 ^sshd: Exiting on signal 15$
 ^sshd: Failed (none|password) for invalid user
 ^sshd: fatal: no matching cipher found:
