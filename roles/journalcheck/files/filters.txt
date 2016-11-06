@@ -28,6 +28,7 @@
 ^smtpproxy: Error: relay access denied;
 ^smtpproxy: Error: unknown command;
 ^smtpproxy: Error: writing server greeting;
+^smtpproxy: Mail sent;
 ^smtpproxy: New connection;
 ^smtpproxy: SMTP proxy started;
 ^sshd: Accepted password for
