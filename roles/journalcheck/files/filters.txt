@@ -43,6 +43,7 @@
 ^sshd: Failed (none|password) for invalid user
 ^sshd: fatal: no matching cipher found:
 ^sshd: fatal: Read from socket failed: Connection reset by peer \[preauth\]$
+^sshd: fatal: Unable to negotiate a key exchange method \[preauth\]$
 ^sshd: input_userauth_request: invalid user
 ^sshd: Invalid user [^ ]+ from
 ^sshd: PAM 2 more authentication failures;
