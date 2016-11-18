@@ -19,5 +19,7 @@ NoNewPrivileges=yes
 SystemCallFilter=@network-io
 RestrictAddressFamilies=AF_INET AF_INET6
 
+RestartForceExitStatus=SIGPIPE
+
 [Install]
 WantedBy=default.target
