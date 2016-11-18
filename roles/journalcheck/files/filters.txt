@@ -18,17 +18,15 @@
 ^nullmailer: Starting mail-transfer-agent: nullmailer\.$
 ^nullmailer: Stopping mail-transfer-agent: nullmailer\.$
 ^nullmailer: Trigger pulled\.$
-^smtpproxy: Client disconnected;
-^smtpproxy: Error: client spoke before its turn;
+^smtpproxy: Client QUIT;
+^smtpproxy: Client escaped tarpit;
+^smtpproxy: Connection finished;
+^smtpproxy: Error: Client spoke before its turn;
 ^smtpproxy: Error: DNSBL check positive;
-^smtpproxy: Error: duplicate MAIL command;
-^smtpproxy: Error: error reading mail data;
-^smtpproxy: Error: missing sender;
-^smtpproxy: Error reading from client;
-^smtpproxy: Error: relay access denied;
-^smtpproxy: Error: unknown command;
-^smtpproxy: Error: writing server greeting;
+^smtpproxy: Error: Relay access denied;
+^smtpproxy: Error: Syntax error in MAIL command;
 ^smtpproxy: Mail sent;
+^smtpproxy: Error delivering mail;
 ^smtpproxy: New connection;
 ^smtpproxy: SMTP proxy started;
 ^sshd: Accepted password for
@@ -45,7 +43,9 @@
 ^sshd: fatal: Read from socket failed: Connection reset by peer \[preauth\]$
 ^sshd: fatal: Unable to negotiate a key exchange method \[preauth\]$
 ^sshd: input_userauth_request: invalid user
+^sshd: invalid public DH value: <= 1 \[preauth\]
 ^sshd: Invalid user [^ ]+ from
+^sshd: Disconnecting: bad client public DH value \[preauth\]
 ^sshd: PAM 2 more authentication failures;
 ^sshd: pam_unix\(sshd:auth\): authentication failure;
 ^sshd: pam_unix\(sshd:auth\): check pass; user unknown
