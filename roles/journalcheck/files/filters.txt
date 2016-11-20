@@ -21,12 +21,15 @@
 ^smtpproxy: Client QUIT;
 ^smtpproxy: Client escaped tarpit;
 ^smtpproxy: Connection finished;
+^smtpproxy: Error delivering mail;
+^smtpproxy: Error reading client command;
+^smtpproxy: Error writing server greeting;
 ^smtpproxy: Error: Client spoke before its turn;
 ^smtpproxy: Error: DNSBL check positive;
 ^smtpproxy: Error: Relay access denied;
 ^smtpproxy: Error: Syntax error in MAIL command;
+^smtpproxy: Error: Unknown command;
 ^smtpproxy: Mail sent;
-^smtpproxy: Error delivering mail;
 ^smtpproxy: New connection;
 ^smtpproxy: SMTP proxy started;
 ^sshd: Accepted password for
