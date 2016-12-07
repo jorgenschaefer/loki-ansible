@@ -1,6 +1,12 @@
 - hosts: localhost
   connection: local
   gather_facts: False
+  vars:
+    aws_region: eu-central-1
+    aws_ami_image: ami-429d5a2d
+    aws_key_pair: loki-key
+    aws_ebs_volume: loki-home
+    aws_eip: 35.156.200.112
   tasks:
     - name: Install boto
       pip: name=boto state=present
@@ -9,13 +15,13 @@
       ec2_key:
         name: loki-key
         key_material: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
-        region: eu-central-1
+        region: "{{ aws_region }}"
 
     - name: Full outgoing security group
       ec2_group:
         name: full_outgoing
         description: Allow connections to anywhere
-        region: eu-central-1
+        region: "{{ aws_region }}"
         rules_egress:
           - proto: all
             from_port: 0
@@ -26,7 +32,7 @@
       ec2_group:
         name: ssh
         description: Allow SSH from anywhere
-        region: eu-central-1
+        region: "{{ aws_region }}"
         rules:
           - proto: tcp
             from_port: 22
@@ -37,7 +43,7 @@
       ec2_group:
         name: smtp
         description: Allow SMTP from anywhere
-        region: eu-central-1
+        region: "{{ aws_region }}"
         rules:
           - proto: tcp
             from_port: 25
@@ -47,8 +53,8 @@
     - name: Create loki instance
       ec2:
         instance_type: t2.micro
-        image: ami-429d5a2d
-        key_name: loki-key
+        image: "{{ aws_ami_image }}"
+        key_name: "{{ aws_key_pair }}"
         groups:
           - full_outgoing
           - ssh
@@ -56,7 +62,7 @@
         instance_tags:
           loki: "true"
           Name: loki
-        region: eu-central-1
+        region: "{{ aws_region }}"
         exact_count: 1
         count_tag:
           loki: "true"
@@ -67,9 +73,9 @@
       ec2_vol:
         device_name: /dev/sdb
         encrypted: True
-        name: loki-home
+        name: "{{ aws_ebs_volume }}"
         instance: "{{ item.id }}"
-        region: eu-central-1
+        region: "{{ aws_region }}"
         volume_size: 20
         volume_type: gp2
       with_items: "{{ ec2.instances }}"
@@ -77,74 +83,6 @@
     - name: Attach elastic IP
       ec2_eip:
         device_id: "{{ item.id }}"
-        ip: 35.156.200.112
-        region: eu-central-1
+        ip: "{{ aws_eip }}"
+        region: "{{ aws_region }}"
       with_items: "{{ ec2.instances }}"
-
-    - name: Create Route53 Zone for jorgen-schaefer.de
-      route53_zone:
-        zone: jorgen-schaefer.de
-
-    - name: Create DNS entry for www.jorgen-schaefer.de
-      route53:
-        command: create
-        zone: jorgen-schaefer.de
-        record: www.jorgen-schaefer.de
-        type: CNAME
-        value: www.jorgen-schaefer.de.s3-website.eu-central-1.amazonaws.com
-        ttl: 7200
-        wait: yes
-
-    - name: Create Route53 Zone
-      route53_zone:
-        zone: jorgenschaefer.de
-
-    - name: Create loki DNS entry
-      route53:
-        command: create
-        zone: jorgenschaefer.de
-        record: loki.jorgenschaefer.de
-        type: A
-        value: 35.156.200.112
-        ttl: 7200
-        wait: yes
-
-    - name: Create mail CNAME entry
-      route53:
-        command: create
-        zone: jorgenschaefer.de
-        record: mail.jorgenschaefer.de
-        type: CNAME
-        value: loki.jorgenschaefer.de
-        ttl: 7200
-        wait: yes
-
-    - name: Create MX entry
-      route53:
-        command: create
-        zone: jorgenschaefer.de
-        record: jorgenschaefer.de
-        type: MX
-        value: 10 mail.jorgenschaefer.de
-        ttl: 7200
-        wait: yes
-
-    - name: Create blog CNAME entry
-      route53:
-        command: create
-        zone: jorgenschaefer.de
-        record: blog.jorgenschaefer.de
-        type: CNAME
-        value: ghs.google.com
-        ttl: 7200
-        wait: yes
-
-    - name: Create DNS entry for www.jorgen-schaefer.de
-      route53:
-        command: create
-        zone: jorgen-schaefer.de
-        record: www.jorgen-schaefer.de
-        type: CNAME
-        value: www.jorgen-schaefer.de.s3-website.eu-central-1.amazonaws.com
-        ttl: 7200
-        wait: yes
