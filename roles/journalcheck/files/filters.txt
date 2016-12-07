@@ -43,32 +43,36 @@
 ^sshd: Bad protocol version identification
 ^sshd: Connection closed by
 ^sshd: Did not receive identification string from
-^sshd: error: Received disconnect from
-^sshd: error: connect_to localhost port [0-9]+ failed\.$
+^sshd: Disconnecting: bad client public DH value \[preauth\]
 ^sshd: Exiting on signal 15$
 ^sshd: Failed (none|password) for invalid user
-^sshd: fatal: no matching cipher found:
+^sshd: Failed keyboard-interactive/pam for invalid user
+^sshd: Invalid user [^ ]+ from
+^sshd: PAM 2 more authentication failures;
+^sshd: Postponed keyboard-interactive for invalid user
+^sshd: Protocol major versions differ for
+^sshd: Received SIGHUP; restarting\.$
+^sshd: Received disconnect from
+^sshd: Received signal 15; terminating\.$
+^sshd: Server listening on 0.0.0.0 port 22\.$
+^sshd: Server listening on :: port 22\.$
+^sshd: User [^ ]+ from [^ ]+ not allowed because not listed in AllowUsers$
+^sshd: error: PAM: Authentication failure for admin from
+^sshd: error: PAM: Authentication failure for illegal user
+^sshd: error: Received disconnect from
+^sshd: error: connect_to localhost port [0-9]+ failed\.$
 ^sshd: fatal: Read from socket failed: Connection reset by peer \[preauth\]$
 ^sshd: fatal: Unable to negotiate a key exchange method \[preauth\]$
+^sshd: fatal: no matching cipher found:
 ^sshd: input_userauth_request: invalid user
 ^sshd: invalid public DH value: <= 1 \[preauth\]
-^sshd: Invalid user [^ ]+ from
-^sshd: Disconnecting: bad client public DH value \[preauth\]
-^sshd: PAM 2 more authentication failures;
 ^sshd: pam_unix\(sshd:auth\): authentication failure;
 ^sshd: pam_unix\(sshd:auth\): check pass; user unknown
 ^sshd: pam_unix\(sshd:session\): session closed for user
 ^sshd: pam_unix\(sshd:session\): session closed for user
 ^sshd: pam_unix\(sshd:session\): session opened for user
 ^sshd: pam_unix\(sshd:session\): session opened for user
-^sshd: Protocol major versions differ for
-^sshd: Received disconnect from
-^sshd: Received SIGHUP; restarting\.$
-^sshd: Received signal 15; terminating\.$
-^sshd: Server listening on 0.0.0.0 port 22\.$
-^sshd: Server listening on :: port 22\.$
 ^sshd: syslogin_perform_logout: logout\(\) returned an error$
-^sshd: User [^ ]+ from [^ ]+ not allowed because not listed in AllowUsers$
 ^su:
 ^sudo: [^ ]+ : \(command continued\)
 ^sudo: [^ ]+ : TTY=
@@ -80,6 +84,7 @@
 ^su: pam_unix\(su:session\): session closed for user
 ^su: pam_unix\(su:session\): session opened for user
 ^su: Successful su for
+^systemd: Reloading\.$
 ^systemd: Starting Journal Check\.$
 ^systemd: Started Journal Check\.$
 ^systemd-journald\.service: Journal started$
