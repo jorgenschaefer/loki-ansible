@@ -1,4 +1,12 @@
 ---
+- name: Mount /home
+  mount:
+    name: /home
+    src: UUID=6131f13d-ea01-4ed7-9dcf-c6082c742799
+    boot: True
+    fstype: ext4
+    state: mounted
+
 - name: Configure hostname
   copy: content="{{ hostname.fqdn }}{{'\n'}}"
         dest=/etc/hostname

@@ -1,6 +1,11 @@
 ---
 - name: Personal user
-  user: name="{{ personal.user.name }}" comment="{{ personal.user.comment }}" groups=sudo
+  user:
+    name: "{{ personal.user.name }}"
+    password: "{{ personal.user.password }}"
+    comment: "{{ personal.user.comment }}"
+    groups: sudo
+    shell: /bin/bash
 
 - name: Basic packages
   apt: name={{ item }} state=present

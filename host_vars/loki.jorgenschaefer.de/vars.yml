@@ -1,4 +1,8 @@
 ---
+ansible_user: admin
+ansible_become: yes
+ansible_become_user: root
+
 hostname:
   fqdn: loki.jorgenschaefer.de
   short: loki
@@ -7,6 +11,7 @@ personal:
   user:
     name: forcer
     comment: Jorgen Schaefer
+    password: "{{ secret_user_password }}"
 
 nullmailer:
   adminaddr: Jorgen.Schaefer@gmail.com

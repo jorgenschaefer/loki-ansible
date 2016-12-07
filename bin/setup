@@ -7,10 +7,6 @@ cd "$(dirname "$0")"/..
 if [ ! -d venv ]
 then
   virtualenv venv
-  ./venv/bin/pip install --upgrade pip setuptools
-  ./venv/bin/pip install ansible
 fi
-
-. ./venv/bin/activate
-
-ansible-playbook -i "$(pwd)/hosts" --ask-pass setup.yml
+./venv/bin/pip install --upgrade pip setuptools
+./venv/bin/pip install --upgrade ansible
