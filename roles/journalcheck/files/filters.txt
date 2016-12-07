@@ -80,6 +80,7 @@
 ^su: pam_unix\(su:session\): session closed for user
 ^su: pam_unix\(su:session\): session opened for user
 ^su: Successful su for
+^systemd: Starting Journal Check\.$
 ^systemd: Started Journal Check\.$
 ^systemd-journald\.service: Journal started$
 ^systemd-journald\.service: Permanent journal is using
