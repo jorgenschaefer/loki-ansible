@@ -81,6 +81,20 @@
         region: eu-central-1
       with_items: "{{ ec2.instances }}"
 
+    - name: Create Route53 Zone for jorgen-schaefer.de
+      route53_zone:
+        zone: jorgen-schaefer.de
+
+    - name: Create DNS entry for www.jorgen-schaefer.de
+      route53:
+        command: create
+        zone: jorgen-schaefer.de
+        record: www.jorgen-schaefer.de
+        type: CNAME
+        value: www.jorgen-schaefer.de.s3-website.eu-central-1.amazonaws.com
+        ttl: 7200
+        wait: yes
+
     - name: Create Route53 Zone
       route53_zone:
         zone: jorgenschaefer.de
@@ -125,8 +139,12 @@
         ttl: 7200
         wait: yes
 
-    # Web:
-    # jorgen-schaefer.de
-    # www.jorgen-schaefer.de
-    # jorgenschaefer.de
-    # www.jorgenschaefer.de
+    - name: Create DNS entry for www.jorgen-schaefer.de
+      route53:
+        command: create
+        zone: jorgen-schaefer.de
+        record: www.jorgen-schaefer.de
+        type: CNAME
+        value: www.jorgen-schaefer.de.s3-website.eu-central-1.amazonaws.com
+        ttl: 7200
+        wait: yes
