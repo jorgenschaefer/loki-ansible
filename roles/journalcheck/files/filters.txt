@@ -5,6 +5,9 @@
 ^dbus: \[system\] Activating via systemd: service name='org\.freedesktop\.hostname1' unit='dbus-org\.freedesktop\.hostname1\.service'$
 ^dbus: \[system\] Successfully activated service 'org\.freedesktop\.hostname1'$
 ^dbus: \[system\] Successfully activated service 'org\.freedesktop\.systemd1'$
+^dhclient: DHCPREQUEST on
+^dhclient: DHCPACK from
+^dhclient: bound to
 ^emacs:
 ^kbd: Setting console screen modes and fonts\.$
 ^networking: Configuring network interfaces\.\.\.Waiting for DAD\.\.\. Done$
@@ -22,7 +25,9 @@
 ^smtpproxy: Client escaped tarpit;
 ^smtpproxy: Connection finished;
 ^smtpproxy: Error delivering mail;
+^smtpproxy: Error during greeting;
 ^smtpproxy: Error reading client command;
+^smtpproxy: Error reading mail data;
 ^smtpproxy: Error writing server greeting;
 ^smtpproxy: Error: Client spoke before its turn;
 ^smtpproxy: Error: DNSBL check positive;
@@ -75,6 +80,7 @@
 ^su: pam_unix\(su:session\): session closed for user
 ^su: pam_unix\(su:session\): session opened for user
 ^su: Successful su for
+^systemd: Started Journal Check\.$
 ^systemd-journald\.service: Journal started$
 ^systemd-journald\.service: Permanent journal is using
 ^systemd-journald.service: Time spent on flushing to
