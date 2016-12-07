@@ -1,8 +1,4 @@
 ---
-ansible_user: admin
-ansible_become: yes
-ansible_become_user: root
-
 hostname:
   fqdn: loki.jorgenschaefer.de
   short: loki

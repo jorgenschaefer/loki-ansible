@@ -1,0 +1,2 @@
+loki.jorgenschaefer.de ansible_host=35.156.200.112 ansible_user=admin ansible_become=yes ansible_become_user=root
+

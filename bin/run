@@ -6,4 +6,9 @@ cd "$(dirname "$0")"/..
 
 . ./venv/bin/activate
 
-ansible-playbook -i "$(pwd)/inventory" site.yml "$@"
+if [ "$(hostname)" = "loki.jorgenschaefer.de" ]
+then
+    ansible-playbook -i "$(pwd)/inventory/local" playbook.yml --ask-sudo-pass "$@"
+else
+    ansible-playbook -i "$(pwd)/inventory/remote" playbook.yml "$@"
+fi
