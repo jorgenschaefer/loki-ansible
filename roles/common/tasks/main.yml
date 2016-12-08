@@ -73,6 +73,23 @@
 - name: Deinstall rsyslog
   apt: name=rsyslog state=absent purge=yes
 
+- name: Remove rsyslog log files
+  file: name={{ item }} state=absent
+  with_items:
+    - /var/log/auth.log
+    - /var/log/syslog
+    - /var/log/cron.log
+    - /var/log/daemon.log
+    - /var/log/kern.log
+    - /var/log/lpr.log
+    - /var/log/mail.log
+    - /var/log/user.log
+    - /var/log/mail.info
+    - /var/log/mail.warn
+    - /var/log/mail.err
+    - /var/log/debug
+    - /var/log/messages
+
 - name: Install unattended-upgrades
   apt: name=unattended-upgrades state=present
 
