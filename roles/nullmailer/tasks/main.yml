@@ -21,3 +21,10 @@
             owner=mail group=mail mode=0600
   notify:
     - Restart nullmailer
+
+- name: Deinstall exim
+  apt: name={{ item }} state=absent purge=yes
+  with_items:
+    - exim4-base
+    - exim4-config
+    - exim4-daemon-light
