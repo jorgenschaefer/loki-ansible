@@ -39,6 +39,7 @@
 ^smtpproxy: SMTP proxy started;
 ^sshd: Accepted password for
 ^sshd: Accepted publickey for
+^sshd: Accepted keyboard-interactive/pam for
 ^sshd: Address [^ ]+ maps to [^ ]+, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!$
 ^sshd: Bad protocol version identification
 ^sshd: Connection closed by
@@ -85,8 +86,8 @@
 ^su: pam_unix\(su:session\): session opened for user
 ^su: Successful su for
 ^systemd: Reloading\.$
-^systemd: Starting Journal Check\.$
-^systemd: Started Journal Check\.$
+^systemd: Starting
+^systemd: Started
 ^systemd-journald\.service: Journal started$
 ^systemd-journald\.service: Permanent journal is using
 ^systemd-journald.service: Time spent on flushing to
