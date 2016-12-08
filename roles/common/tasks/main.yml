@@ -70,6 +70,9 @@
   template: src=10norecommends.j2 dest=/etc/apt/apt.conf.d/10norecommends
             owner=root group=root mode=0644
 
+- name: Deinstall rsyslog
+  apt: name=rsyslog state=absent purge=yes
+
 - name: Install unattended-upgrades
   apt: name=unattended-upgrades state=present
 
