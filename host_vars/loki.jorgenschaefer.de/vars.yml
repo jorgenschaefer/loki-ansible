@@ -18,7 +18,7 @@ nullmailer:
 
 smtpproxy:
   valid_recipients: |
-    "^(forcer|jorgen|contact)@(jorgenschaefer\.de|forcix\.cx)$"
+    "^(forcer|jorgen|contact|administrator)@(jorgenschaefer\.de|forcix\.cx)$"
   override_recipient: |
     "Jorgen.Schaefer@gmail.com"
   relay_host: |
