@@ -45,6 +45,7 @@
 ^sshd: Connection closed by
 ^sshd: Did not receive identification string from
 ^sshd: Disconnecting: bad client public DH value \[preauth\]
+^sshd: Disconnecting: Too many authentication failures for invalid user
 ^sshd: Exiting on signal 15$
 ^sshd: Failed (none|password) for invalid user
 ^sshd: Failed keyboard-interactive/pam for invalid user
