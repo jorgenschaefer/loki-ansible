@@ -2,9 +2,7 @@
 Description=Emacs Daemon
 
 [Service]
-Type=forking
-ExecStart=/bin/bash -l -c '/home/forcer/.local/bin/emacs --daemon'
-ExecStop=/bin/bash -l -c '/home/forcer/.local/bin/emacsclient --eval "(kill-emacs)"'
+ExecStart=/bin/bash -l -c '/home/forcer/.local/bin/emacs --new-daemon'
 User=forcer
 WorkingDirectory=/home/forcer
 Restart=on-failure
