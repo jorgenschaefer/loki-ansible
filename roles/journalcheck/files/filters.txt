@@ -51,7 +51,7 @@
 ^sshd: Exiting on signal 15$
 ^sshd: Failed (none|password) for invalid user
 ^sshd: Failed keyboard-interactive/pam for invalid user
-^sshd: Invalid user [^ ]+ from
+^sshd: Invalid user [^ ]* from
 ^sshd: PAM 2 more authentication failures;
 ^sshd: Postponed keyboard-interactive for invalid user
 ^sshd: Protocol major versions differ for
