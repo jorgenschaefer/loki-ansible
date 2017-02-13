@@ -1,6 +1,6 @@
 ---
 - name: Install golang for journalcheck
-  apt: name="golang=2:1.6.1+1~bpo8+1" state=present default_release=jessie-backports
+  apt: name="golang=2:1.7~5~bpo8+1" state=present default_release=jessie-backports
 
 - name: Install libsystemd-dev for journalcheck
   apt: name=libsystemd-dev state=present
