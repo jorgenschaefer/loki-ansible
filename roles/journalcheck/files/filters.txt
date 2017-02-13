@@ -41,11 +41,13 @@
 ^sshd: Accepted publickey for
 ^sshd: Accepted keyboard-interactive/pam for
 ^sshd: Address [^ ]+ maps to [^ ]+, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!$
+^sshd: Bad packet length [0-9]+\. \[preauth\]
 ^sshd: Bad protocol version identification
 ^sshd: Connection closed by
 ^sshd: Did not receive identification string from
 ^sshd: Disconnecting: bad client public DH value \[preauth\]
 ^sshd: Disconnecting: Change of username or service not allowed:
+^sshd: Disconnecting: Disconnecting: Packet corrupt \[preauth\]
 ^sshd: Disconnecting: Too many authentication failures for invalid user
 ^sshd: Disconnecting: Too many authentication failures for admin from
 ^sshd: Exiting on signal 15$
