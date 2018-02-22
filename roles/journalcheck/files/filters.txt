@@ -1,12 +1,12 @@
+^CRON:
 ^ansible-[^:]*:
 ^cron:
-^CRON:
 ^crontab:
 ^dbus: \[system\] Activating via systemd: service name='org\.freedesktop\.hostname1' unit='dbus-org\.freedesktop\.hostname1\.service'$
 ^dbus: \[system\] Successfully activated service 'org\.freedesktop\.hostname1'$
 ^dbus: \[system\] Successfully activated service 'org\.freedesktop\.systemd1'$
-^dhclient: DHCPREQUEST on
 ^dhclient: DHCPACK from
+^dhclient: DHCPREQUEST on
 ^dhclient: bound to
 ^emacs:
 ^kbd: Setting console screen modes and fonts\.$
@@ -15,12 +15,12 @@
 ^nullmailer: Delivery complete, 0 message\(s\) remain\.$
 ^nullmailer: Rescanning queue\.$
 ^nullmailer: Sent file\.$
-^nullmailer: smtp: Succeeded:
 ^nullmailer: Starting delivery, [0-9]+ message\(s\) in queue\.$
 ^nullmailer: Starting delivery:
 ^nullmailer: Starting mail-transfer-agent: nullmailer\.$
 ^nullmailer: Stopping mail-transfer-agent: nullmailer\.$
 ^nullmailer: Trigger pulled\.$
+^nullmailer: smtp: Succeeded:
 ^smtpproxy: Client QUIT;
 ^smtpproxy: Client escaped tarpit;
 ^smtpproxy: Connection finished;
@@ -37,25 +37,28 @@
 ^smtpproxy: Mail sent;
 ^smtpproxy: New connection;
 ^smtpproxy: SMTP proxy started;
+^sshd: Accepted keyboard-interactive/pam for
 ^sshd: Accepted password for
 ^sshd: Accepted publickey for
-^sshd: Accepted keyboard-interactive/pam for
 ^sshd: Address [^ ]+ maps to [^ ]+, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!$
 ^sshd: Bad packet length [0-9]+\. \[preauth\]
 ^sshd: Bad protocol version identification
 ^sshd: Connection closed by
 ^sshd: Did not receive identification string from
-^sshd: Disconnecting: bad client public DH value \[preauth\]
 ^sshd: Disconnecting: Change of username or service not allowed:
 ^sshd: Disconnecting: Packet corrupt \[preauth\]
-^sshd: Disconnecting: Too many authentication failures for invalid user
 ^sshd: Disconnecting: Too many authentication failures for admin from
+^sshd: Disconnecting: Too many authentication failures for invalid user
+^sshd: Disconnecting: bad client public DH value \[preauth\]
 ^sshd: Exiting on signal 15$
 ^sshd: Failed (none|password) for invalid user
 ^sshd: Failed keyboard-interactive/pam for invalid user
+^sshd: Invalid user
 ^sshd: Invalid user [^ ]* from
 ^sshd: PAM 2 more authentication failures;
+^sshd: Postponed keyboard-interactive for
 ^sshd: Postponed keyboard-interactive for invalid user
+^sshd: Postponed keyboard-interactive/pam for
 ^sshd: Protocol major versions differ for
 ^sshd: Received SIGHUP; restarting\.$
 ^sshd: Received disconnect from
@@ -69,31 +72,28 @@
 ^sshd: error: connect_to localhost port [0-9]+ failed\.$
 ^sshd: fatal: Read from socket failed: Connection reset by peer \[preauth\]$
 ^sshd: fatal: Unable to negotiate a key exchange method \[preauth\]$
+^sshd: fatal: Write failed: Connection reset by peer
+^sshd: fatal: no hostkey alg
 ^sshd: fatal: no matching cipher found:
 ^sshd: input_userauth_request: invalid user
 ^sshd: invalid public DH value: <= 1 \[preauth\]
 ^sshd: pam_unix\(sshd:auth\): authentication failure;
 ^sshd: pam_unix\(sshd:auth\): check pass; user unknown
 ^sshd: pam_unix\(sshd:session\): session closed for user
-^sshd: pam_unix\(sshd:session\): session closed for user
-^sshd: pam_unix\(sshd:session\): session opened for user
 ^sshd: pam_unix\(sshd:session\): session opened for user
 ^sshd: syslogin_perform_logout: logout\(\) returned an error$
 ^su:
-^sudo: [^ ]+ : \(command continued\)
-^sudo: [^ ]+ : TTY=
-^sudo: pam_unix\(sudo:session\): session closed for user
-^sudo: pam_unix\(sudo:session\): session closed for user
-^sudo: pam_unix\(sudo:session\): session opened for user
-^sudo: pam_unix\(sudo:session\): session opened for user
-^sudo: pam_unix\(sudo:session\): session opened for user
+^su: Successful su for
 ^su: pam_unix\(su:session\): session closed for user
 ^su: pam_unix\(su:session\): session opened for user
-^su: Successful su for
-^systemd: Reloading\.$
-^systemd: Starting
-^systemd: Started
+^sudo: [^ ]+ : TTY=
+^sudo: [^ ]+ : \(command continued\)
+^sudo: pam_unix\(sudo:session\): session closed for user
+^sudo: pam_unix\(sudo:session\): session opened for user
+^systemd-journald.service: Time spent on flushing to
 ^systemd-journald\.service: Journal started$
 ^systemd-journald\.service: Permanent journal is using
-^systemd-journald.service: Time spent on flushing to
+^systemd: Reloading\.$
+^systemd: Started
+^systemd: Starting
 ^vzquota: /etc/init\.d/vzquota: 15: \[: 0: unexpected operator$
